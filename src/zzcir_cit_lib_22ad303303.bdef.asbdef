@@ -1,0 +1,59 @@
+managed implementation in class ZZCIBP_R_CIT_LIB_22AD303303 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZZCIR_CIT_LIB_22AD303303 alias ZzcirCitLib22ad303303
+persistent table ZCIT_LIB_22AD303
+extensible
+draft table ZZCICT_LB_2_D303
+etag master Locallastchangedat
+lock master total etag Lastchangedat
+authorization master( global )
+{
+  field ( mandatory : create )
+   BookID;
+
+  field ( readonly )
+   Createdby,
+   Createdat,
+   Lastchangedby,
+   Lastchangedat,
+   Locallastchangedat;
+
+  field ( readonly : update )
+   BookID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCIT_LIB_22AD303 corresponding extensible
+  {
+    BookID = BOOK_ID;
+    Category = CATEGORY;
+    Title = TITLE;
+    Language = LANGUAGE;
+    BookCondition = BOOK_CONDITION;
+    MemberType = MEMBER_TYPE;
+    Status = STATUS;
+    Author = AUTHOR;
+    Publisher = PUBLISHER;
+    PublicationYear = PUBLICATION_YEAR;
+    Isbn = ISBN;
+    Currency = CURRENCY;
+    Price = PRICE;
+    Createdby = CREATEDBY;
+    Createdat = CREATEDAT;
+    Lastchangedby = LASTCHANGEDBY;
+    Lastchangedat = LASTCHANGEDAT;
+    Locallastchangedat = LOCALLASTCHANGEDAT;
+  }
+
+}
